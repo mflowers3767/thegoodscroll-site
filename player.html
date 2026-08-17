@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>The Good Scroll — Player</title>
+<style>
+  html,body{margin:0;padding:0;background:#000;height:100%;overflow:hidden}
+  iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+</style>
+</head>
+<body>
+<script>
+  var params = new URLSearchParams(location.search);
+  var v = (params.get('v') || '').replace(/[^a-zA-Z0-9_-]/g, '');
+  if (v) {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + v +
+      '?rel=0&playsinline=1&autoplay=1&modestbranding=1&color=white';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    document.body.appendChild(f);
+  }
+</script>
+</body>
+</html>
